@@ -110,26 +110,22 @@ namespace ChzzkAPI
 
         public string GetChannelName(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_CHANNEL_INFO, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_CHANNEL_INFO]["content"]["channelName"].ToString();
+            return GetJObject(ChzzkApiType.CZK_CHANNEL_INFO, channelId)["content"]["channelName"].ToString();
         }
 
         public string GetChannelID(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_CHANNEL_INFO, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_CHANNEL_INFO]["content"]["channelId"].ToString();
+            return GetJObject(ChzzkApiType.CZK_CHANNEL_INFO, channelId)["content"]["channelId"].ToString();
         }
 
         public JObject GetLivePlaybackJson(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_LIVE_DETAIL, channelId);
-            return JObject.Parse(internalData[channelId][ChzzkApiType.CZK_LIVE_DETAIL]["content"]["livePlaybackJson"].ToString());
+            return JObject.Parse(GetJObject(ChzzkApiType.CZK_LIVE_DETAIL, channelId)["content"]["livePlaybackJson"].ToString());
         }
 
         public string GetLiveTitle(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_LIVE_DETAIL, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_LIVE_DETAIL]["content"]["liveTitle"].ToString();
+            return GetJObject(ChzzkApiType.CZK_LIVE_DETAIL, channelId)["content"]["liveTitle"].ToString();
         }
 
         public string GetMedia(string channelId)
@@ -144,26 +140,22 @@ namespace ChzzkAPI
 
         public string GetStatus(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_LIVE_DETAIL, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_LIVE_DETAIL]["content"]["status"].ToString();
+            return GetJObject(ChzzkApiType.CZK_LIVE_DETAIL, channelId)["content"]["status"].ToString();
         }
 
         public bool IsOpenLive(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_CHANNEL_INFO, channelId);
-            return Convert.ToBoolean(internalData[channelId][ChzzkApiType.CZK_CHANNEL_INFO]["content"]["openLive"]);
+            return Convert.ToBoolean(GetJObject(ChzzkApiType.CZK_CHANNEL_INFO, channelId)["content"]["openLive"]);
         }
 
         public string GetChannelDescription(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_CHANNEL_INFO, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_CHANNEL_INFO]["content"]["channelDescription"].ToString();
+            return GetJObject(ChzzkApiType.CZK_CHANNEL_INFO, channelId)["content"]["channelDescription"].ToString();
         }
 
         public string GetChannelImageUrl(string channelId)
         {
-            CheckData(ChzzkApiType.CZK_CHANNEL_INFO, channelId);
-            return internalData[channelId][ChzzkApiType.CZK_CHANNEL_INFO]["content"]["channelImageUrl"].ToString();
+            return GetJObject(ChzzkApiType.CZK_CHANNEL_INFO, channelId)["content"]["channelImageUrl"].ToString();
         }
 
         public JObject GetJObject(ChzzkApiType apiType, string channelId)
